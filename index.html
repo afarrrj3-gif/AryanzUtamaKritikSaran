@@ -1,128 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>500 Internal Server Error</title>
+<title>Kritik & Saran JB</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-  background:#0b0f14;
-  color:#c9d1d9;
-  font-family:monospace;
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+  padding: 20px;
 }
 
-.error-box{
-  max-width:500px;
-  padding:30px;
-  border:1px solid #222;
-  background:#0e131a;
-  box-shadow:0 0 40px rgba(0,0,0,.6);
-  animation:fadeIn 1s ease;
+.container {
+  max-width: 500px;
+  margin: auto;
 }
 
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
+h2 {
+  text-align: center;
 }
 
-h1{
-  font-size:42px;
-  color:#ff5f5f;
-  margin-bottom:10px;
+input, textarea, button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
 }
 
-.glitch{
-  position:relative;
-  animation:glitch 1.2s infinite;
+input, textarea {
+  background: #1e293b;
+  color: white;
 }
 
-@keyframes glitch{
-  0%{text-shadow:2px 0 red,-2px 0 cyan}
-  20%{text-shadow:-2px 0 red,2px 0 cyan}
-  40%{text-shadow:2px 0 red,-2px 0 cyan}
-  60%{text-shadow:-1px 0 red,1px 0 cyan}
-  100%{text-shadow:0 0 transparent}
+button {
+  background: #22c55e;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-p{
-  font-size:14px;
-  line-height:1.6;
-  margin-bottom:15px;
-}
-
-.code{
-  background:#020409;
-  border:1px solid #222;
-  padding:12px;
-  font-size:12px;
-  color:#8b949e;
-  margin-bottom:15px;
-}
-
-.loading{
-  font-size:13px;
-  color:#58a6ff;
-}
-
-.dot::after{
-  content:'';
-  animation:dots 1.5s infinite;
-}
-
-@keyframes dots{
-  0%{content:''}
-  33%{content:'.'}
-  66%{content:'..'}
-  100%{content:'...'}
-}
-
-.footer{
-  margin-top:15px;
-  font-size:11px;
-  color:#555;
-  text-align:right;
+.note {
+  font-size: 13px;
+  opacity: 0.8;
+  margin-top: 10px;
+  text-align: center;
 }
 </style>
 </head>
 
 <body>
+<div class="container">
+  <h2>💬 Kritik & Saran</h2>
 
-<div class="error-box">
-  <h1 class="glitch">500</h1>
-  <p><b>Internal Server Error</b></p>
+  <form action="https://formspree.io/f/mbdyborz" method="POST">
+    <input type="text" name="nama" placeholder="Nama (opsional)">
+    
+    <textarea name="pesan" rows="5" placeholder="Tulis kritik atau saran kamu..." required></textarea>
+    
+    <button type="submit">KIRIM PESAN</button>
+  </form>
 
-  <p>
-    The server encountered an unexpected condition that prevented it from fulfilling the request.
-  </p>
-
-  <div class="code">
-    ERROR_CODE: SRV_NULL_POINTER_EXCEPTION<br>
-    TIMESTAMP: <span id="time"></span><br>
-    REQUEST_ID: <span id="rid"></span><br>
-    NODE: edge-server-02
-  </div>
-
-  <div class="loading">
-    Attempting automatic recovery<span class="dot"></span>
-  </div>
-
-  <div class="footer">
-    nginx/1.24.0
+  <div class="note">
+    Pesan dibaca langsung oleh admin JB
   </div>
 </div>
-
-<script>
-document.getElementById("time").innerText = new Date().toISOString();
-document.getElementById("rid").innerText =
-  Math.random().toString(36).substring(2,10).toUpperCase();
-</script>
-
 </body>
 </html>
